@@ -1,8 +1,8 @@
 module.exports = {
-    name: "support server",
+    name: "supportserver",
     category: "info",
     description: "server to get support ",
-    usage: "support server",
+    usage: "supportserver",
     run: (client, message) => {
       message.channel.send("https://discord.gg/p4yVG35Zzt");
     }
