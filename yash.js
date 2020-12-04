@@ -19,7 +19,7 @@ client.aliases = new discord.Collection();
 
 
 client.on("ready", () => { //When bot is ready
-  console.log("I am Reday to Go")
+  console.log("I am Ready to Go")
   client.user.setActivity(db.get("uiop")) //It will set status :)
 })
 
