@@ -1,6 +1,4 @@
 const http = require('http');
-const express = require('express');
-const app = express();
 
 var server = require('http').createServer(app);
 app.get("/", (request, response) => {
