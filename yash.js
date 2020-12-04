@@ -65,7 +65,7 @@ client.on("guildMemberAdd", (member) => {
   .setAuthor(member.user.username, member.user.avatarURL())
   .setColor("#ff2050")
   .setDescription(`<a:027:768959152071639072>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬<a:027:768959152071639072>
-       <a:Arrow2:768960040840986678>  Welcome To **__{server.name}__** <a:v_:768863045002067988> 
+       <a:Arrow2:768960040840986678>  Welcome To **__⫸FＵＮツS C H O O L__** <a:v_:768863045002067988> 
        <a:firee:768960082905792573> Thanks For Joining <@${member.user.id}> <a:heart0:768960418504245278> 
 <a:027:768959152071639072>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬<a:027:768959152071639072>
 <a:027:768959152071639072>▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬<a:027:768959152071639072>
