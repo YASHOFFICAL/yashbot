@@ -1,1 +1,1 @@
-worker: java yash.js
+worker: node yash.js
