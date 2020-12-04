@@ -5,7 +5,7 @@ const client = new discord.Client({
   disableEveryone: true // what does this disable thing do?
 });
 const db = require("quick.db") //WE WILL BE USING QUICK.DB
-
+const { addexp } = require("./handlers/xp.js")
 client.commands = new discord.Collection();
 client.aliases = new discord.Collection();
 
