@@ -1,1 +1,1 @@
-worker: python yash.js
+worker: java yash.js
