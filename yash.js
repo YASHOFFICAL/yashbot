@@ -48,7 +48,7 @@ if(message.author.bot) return;
     if (command) 
         command.run(client, message, args);
   
-return addexp(message)
+
 
  }) //All codes link in description
 
