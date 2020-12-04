@@ -1,58 +1,38 @@
-const http = require('http');
+const { token, default_prefix } = require("./config.json")
+const { config } = require("dotenv");
+const discord = require("discord.js") //Gonna use Discord.js Module xD
+const client = new discord.Client({
+  disableEveryone: true // what does this disable thing do?
+});
+const db = require("quick.db") //WE WILL BE USING QUICK.DB
 
-var server = require('http').createServer(app);
-app.get("/", (request, response) => {
-  console.log(" Ping Received");
-  response.sendStatus(200);
-});
-const listener = server.listen(process.env.PORT, function() {
-  console.log('Your app is listening on port ' + listener.address().port);
-});
-setInterval(() => {
-  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
-}, 280000);
-//_______________________________________________________________________________________________________________________________
-const { Client, Collection } = require("discord.js");
-const { TOKEN } = require("./config.json")
-const db = require("quick.db")
-const client = new Client({
-    disableEveryone: true
+client.commands = new discord.Collection();
+client.aliases = new discord.Collection();
+
+
+
+
+["command"].forEach(handler => { 
+  require(`./handlers/${handler}`)(client)
 })
-//_____________________________________________________________________________________________________________________________
-
-client.on("ready", () => {
-  client.user.setStatus("idle");
-   client.user.setActivity("one piece", {
-     type: "WATCHING"
-   })
-  console.log(`Hi, ${client.user.username} is now online!`);
-});
 
 
-//________________________________________________________________________________________________________________________________
-client.commands = new Collection();
-client.aliases = new Collection();
 
-["command"].forEach(handler => {
-    require(`./handlers/${handler}`)(client);
-});
+client.on("ready", () => { //When bot is ready
+  console.log("I am Reday to Go")
+  client.user.setActivity(db.get(`status`)) //It will set status :)
+})
 
 client.on("message", async message => {
-   let prefix = await db.fetch(`prefix_${message.guild.id}`)
-   if(prefix == null) {
-    prefix = "a?" 
-  }
   
-     let blacklist = await db.fetch(`blacklist_${message.author.id}`)
-   
-    if (message.author.bot) return;
-    if (!message.guild) return;
-    if (!message.content.startsWith(prefix)) return;
-      
-    if (blacklist === "Blacklisted") return message.reply("You are blacklisted from the bot!")
-
-    // If message.member is uncached, cache it.
-    if (!message.member) message.member = await message.guild.fetchMember(message);
+if(message.author.bot) return;
+  if(!message.guild) return;
+  let prefix = db.get(`prefix_${message.guild.id}`)
+  if(prefix === null) prefix = default_prefix;
+  
+  if(!message.content.startsWith(prefix)) return;
+  
+     if (!message.member) message.member = await message.guild.fetchMember(message);
 
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
@@ -68,6 +48,29 @@ client.on("message", async message => {
     if (command) 
         command.run(client, message, args);
   
-});
+return addexp(message)
 
-client.login(TOKEN);
+ }) //All codes link in description
+
+//GONNA USE EVENT HERE
+
+client.on("guildMemberAdd", (member) => {
+  let chx = db.get(`welchannel_${member.guild.id}`);
+  
+  if(chx === null) {
+    return;
+  }
+
+  let wembed = new discord.MessageEmbed()
+  .setAuthor(member.user.username, member.user.avatarURL())
+  .setColor("#ff2050")
+  .setThumbnail(member.user.avatarURL())
+  .setDescription(`We are very happy to have you in our server`);
+  
+  client.channels.cache.get(chx).send(wembed)
+})
+
+
+
+
+client.login(token)
