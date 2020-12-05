@@ -12,7 +12,7 @@ module.exports = {
         roles.push(role.name);
       });
       Embed.setTitle(`Your avatar!`);
-      Embed.setThumbnail(message.author.displayAvatarURL());
+      Embed.setDescription(message.author.displayAvatarURL());
       Embed.setColor(`RANDOM`);
       return message.channel.send(Embed);
     } else {
@@ -21,7 +21,7 @@ module.exports = {
         roles.push(role.name);
       });
       Embed.setTitle(`${bot.users.cache.get(User.id).tag}'s avatar!`);
-      Embed.setThumbnail(bot.users.cache.get(User.id).displayAvatarURL());
+      Embed.setDescription(bot.users.cache.get(User.id).displayAvatarURL());
       Embed.setColor(`RANDOM`);
       return message.channel.send(Embed);
     }
