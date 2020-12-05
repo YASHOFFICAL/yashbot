@@ -14,7 +14,6 @@ module.exports = {
       Embed.setTitle(`Your avatar!`);
       Embed.setThumbnail(message.author.displayAvatarURL());
       Embed.setColor(`RANDOM`);
-      Embed.setDescription();
       return message.channel.send(Embed);
     } else {
       let User = message.mentions.members.first();
@@ -24,7 +23,6 @@ module.exports = {
       Embed.setTitle(`${bot.users.cache.get(User.id).tag}'s avatar!`);
       Embed.setThumbnail(bot.users.cache.get(User.id).displayAvatarURL());
       Embed.setColor(`RANDOM`);
-      Embed.setDescription();
       return message.channel.send(Embed);
     }
   },
