@@ -12,6 +12,8 @@ module.exports = {
       const Embed = new Discord.MessageEmbed()
           .setDescription(args[2])
           .setColor(args[1])
+      
+      
           message.channel.send(Embed)
     
     
