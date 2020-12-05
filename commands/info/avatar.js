@@ -20,9 +20,9 @@ module.exports = {
       User.roles.cache.forEach((role) => {
         roles.push(role.name);
       });
-      Embed.setTitle(`${bot.users.cache.get(User.id).tag}'s avatar!`);
-      Embed.setDescription(bot.users.cache.get(User.id).displayAvatarURL());
-      Embed.setColor(`RANDOM`);
+      Embed.setAuthor(message.author.username)
+      Embed.setImage(message.author.displayAvatarURL)
+      Embed.setColor(`RANDOM`)
       return message.channel.send(Embed);
     }
   },
