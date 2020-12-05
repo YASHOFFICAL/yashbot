@@ -14,7 +14,6 @@ module.exports = {
     
     
     let embed = new MessageEmbed()
-    .setColor(" ")
     .setDescription(args.join(" "))
     
     
