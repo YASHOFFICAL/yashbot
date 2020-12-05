@@ -6,7 +6,7 @@ module.exports = {
   usage: "embed <#colourcode> <message>",
   description: "embed your message",
   category: "main",
-  run: async (client, message, args) => {
+  run: async (bot, message, args) => {
       if (!args[0]) return message.chennal.send("color is a required argument that is missing")
       if (!args[1]) return message.chennal.send("text is a required argument that is missing")
       const Embed = new Discord.MessageEmbed()
