@@ -9,11 +9,12 @@ module.exports = {
   run: async (bot, message, args) => {
       if (!args[0]) return message.chennal.send("color is a required argument that is missing")
       if (!args[1]) return message.chennal.send("text is a required argument that is missing")
-      const Embed = new Discord.MessageEmbed()
+      const embed = new Discord.MessageEmbed()
           .setDescription(args[1])
           .setColor(args[0])
       
       
+           message.channel.send(embed)
 
     
     
