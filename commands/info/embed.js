@@ -3,7 +3,7 @@ const Discord = require("discord.js")
 
 module.exports = {
   name: "embed",
-  usage: "embed <#colourcode> <message>",
+  usage: "embed <#colour> <text>",
   description: "embed your message",
   category: "main",
   run: async (bot, message, args) => {
