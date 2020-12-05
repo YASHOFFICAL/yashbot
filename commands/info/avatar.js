@@ -13,7 +13,7 @@ module.exports = {
       });
       Embed.setColor(0x333333)
       Embed.setAuthor(message.author.username)
-      Embed.setImage(message.author.avatarURL)
+      Embed.setImage(message.author.displayAvatarURL)
         message.channel.send(avatarAuthor);
       return message.channel.send(Embed);
     } else {
