@@ -14,7 +14,7 @@ module.exports = {
           .setColor(args[1])
       
       
-          message.channel.send(Embed)
+
     
     
     
