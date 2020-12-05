@@ -11,9 +11,10 @@ module.exports = {
       message.member.roles.cache.forEach((role) => {
         roles.push(role.name);
       });
-      Embed.setTitle(`Your avatar!`);
-      Embed.setDescription(message.author.displayAvatarURL());
-      Embed.setColor(`RANDOM`);
+      Embed.setColor(0x333333)
+      Embed.setAuthor(message.author.username)
+      Embed.setImage(message.author.avatarURL)
+        message.channel.send(avatarAuthor);
       return message.channel.send(Embed);
     } else {
       let User = message.mentions.members.first();
