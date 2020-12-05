@@ -9,7 +9,7 @@ module.exports = {
     
     if (!MSG)
       return message.channel.send(`You did not specify your message to send!`);
-    const _ = new MessageEmbed()
+      const Embed = new Discord.MessageEmbed()
       .setDescription(`${MSG}`)
       .setColor("RANDOM");
   },
