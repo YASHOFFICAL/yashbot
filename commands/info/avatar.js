@@ -11,18 +11,18 @@ module.exports = {
       message.member.roles.cache.forEach((role) => {
         roles.push(role.name);
       });
-      Embed.setAuthor(message.author.username)
-      Embed.setImage(message.author.displayAvatarURL)
-      Embed.setColor(`RANDOM`)
+      .setTitle(message.author.username)
+      .setImage(message.author.displayAvatarURL)
+      .setColor(`RANDOM`)
       return message.channel.send(Embed);
     } else {
       let User = message.mentions.members.first();
       User.roles.cache.forEach((role) => {
         roles.push(role.name);
       });
-      Embed.setAuthor(message.author.username)
-      Embed.setImage(message.author.displayAvatarURL)
-      Embed.setColor(`RANDOM`)
+      .setTitle(message.author.username)
+      .setImage(message.author.displayAvatarURL)
+      .setColor(`RANDOM`)
       return message.channel.send(Embed);
     }
   },
