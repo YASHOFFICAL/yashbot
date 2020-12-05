@@ -17,7 +17,6 @@ module.exports = {
     .setColor(" ")
     .setDescription(args.join(" "))
     
-       message.channel.send("done")
     
   }
 }
